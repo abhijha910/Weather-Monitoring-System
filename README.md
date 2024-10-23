@@ -35,17 +35,18 @@ The system provides visualizations of daily weather summaries, historical trends
 1. **Searching for Delhi:**
    - **Input**: `Delhi`
    - **Output**: `Delhi: 25.30°C, Clear`
-   - ![Delhi Search Result](images/Search_City_Delhi.png)  <!-- Corrected the file name format -->
+   - ![Delhi Search Result](images/Search%20City%20Delhi.png)  <!-- Correctly formatted for spaces in file name -->
 
 2. **Searching for Kolkata:**
    - **Input**: `Kolkata`
    - **Output**: `Kolkata: 28.75°C, Clouds`
-   - ![Kolkata Search Result](images/Search_Valid_City_Kolkata.png)  <!-- Corrected the file name format -->
+   - ![Kolkata Search Result](images/Search%20Valid%20City%20Kolkata.png)  <!-- Correctly formatted for spaces in file name -->
 
 3. **Searching for a Non-Existent City:**
    - **Input**: `NotACity`
    - **Output**: `City not found`
-   - ![City Not Found](images/Search_Wrong_City.png)  <!-- Corrected the file name format -->
+   - ![City Not Found](images/Search%20Wrong%20City.png)  <!-- Correctly formatted for spaces in file name -->
+
 
 ## Installation Instructions
 1. Clone the repository:
