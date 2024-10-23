@@ -76,5 +76,21 @@ The system provides visualizations of daily weather summaries, historical trends
     ```bash
     python src/main.py
 
+## Accessing the Application in Your Browser
+
+Once the application is running, you can access the web interface by following these steps:
+
+1. **Open Your Web Browser**: Launch your preferred web browser (e.g., Chrome, Firefox, Safari).
+
+2. **Navigate to the Application**: In the address bar, type the following URL and press Enter:
+   [http://localhost:5000](http://localhost:5000)
+
+3. **Interacting with the Application**:
+   - You should see the main interface of the Weather Monitoring System.
+   - Enter the name of a city (e.g., Delhi, Kolkata) into the search bar to fetch weather data.
+   - The application will display the current weather information for the specified city.
+
+4. **Check Console for Alerts**: If you have configured alert thresholds in your application, any alerts will be displayed in the console where the application is running.
+
 ## Authors
 Abhyanand Jha - abhyanandlsc@gmail.com
