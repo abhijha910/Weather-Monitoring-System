@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Weather App</h1>
+
+    <form id="searchForm" method="POST" action="/search">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        const form = document.getElementById('searchForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the form from submitting the default way
+            const formData = new FormData(form);
+            const response = await fetch('/search', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (response.ok) {
+                // Determine icon based on weather condition
+                let icon;
+                switch (data.condition.toLowerCase()) {
+                    case 'clear':
+                        icon = '<i class="fas fa-sun"></i>'; // Sun icon
+                        break;
+                    case 'clouds':
+                        icon = '<i class="fas fa-cloud"></i>'; // Cloud icon
+                        break;
+                    case 'rain':
+                        icon = '<i class="fas fa-cloud-showers-heavy"></i>'; // Rain icon
+                        break;
+                    case 'hot':
+                        icon = '<i class="fas fa-temperature-high"></i>'; // Hot icon
+                        break;
+                    case 'haze':
+                        icon = '<i class="fas fa-smog"></i>'; // Haze icon
+                        break;
+                    default:
+                        icon = '<i class="fas fa-question-circle"></i>'; // Default icon
+                        break;
+                }
+
+                resultsDiv.innerHTML = `<p>${icon} ${data.city}: ${data.temp}°C, ${data.condition}</p>`;
+            } else {
+                resultsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
